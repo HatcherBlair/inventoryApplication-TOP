@@ -19,10 +19,10 @@ router.get("/item/:id/delete", itemController.deleteItemGET);
 router.post("/item/:id/delete", itemController.deleteItemPOST);
 
 // Detail page for single item
-router.get("/item/:id", "test"); //Not IMplremented cause issures)
+router.get("/item/:id", itemController.itemDetail);
 
 // Lists all items
-router.get("/items", itemController.itemList);
+router.get("/", itemController.itemList);
 
 // Lists all items in category
 router.get("/items/:category", itemController.itemListCategory);
@@ -40,12 +40,12 @@ router.post("/category/:id/update", categoryController.updateCategoryPOST);
 
 // Delete existing category
 router.get("/category/:id/delete", categoryController.deleteCategoryGET);
-router.post("/category/:id/delete", categoryController.deleteItemPOST);
+router.post("/category/:id/delete", categoryController.deleteCategoryPOST);
 
 // Detail page for category
 router.get("/category/:id", categoryController.categoryDetail);
 
-// LList all categories
+// List all categories
 router.get("/categories", categoryController.categoryList);
 
 module.exports = router;

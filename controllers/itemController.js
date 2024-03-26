@@ -8,6 +8,11 @@ exports.itemList = asyncHandler(async (req, res, next) => {
   res.send("Not Implemented: itemController.itemList");
 });
 
+// Displays item detail
+exports.itemDetail = asyncHandler(async (req, res, next) => {
+  res.send("Not Implemented: itemController.itemDetail");
+});
+
 // Display items in category
 exports.itemListCategory = asyncHandler(async (req, res, next) => {
   res.send("Not ImplementedL itemController.itemListCategory");
