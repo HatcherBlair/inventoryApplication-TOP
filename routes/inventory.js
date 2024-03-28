@@ -6,6 +6,9 @@ const categoryController = require("../controllers/categoryController");
 
 /* Item Routes */
 
+// Render home page
+router.get("/", itemController.index);
+
 // Add new item
 router.get("/item/new", itemController.createItemGET);
 router.post("/item/new", itemController.createItemPOST);
@@ -22,11 +25,8 @@ router.post("/item/:id/delete", itemController.deleteItemPOST);
 router.get("/item/:id", itemController.itemDetail);
 
 // Lists all items
-router.get("/", itemController.itemList);
-
-// Lists all items in category
-router.get("/items/:category", itemController.itemListCategory);
-// This will have a post eventually
+router.get("/items", itemController.itemList);
+router.post("/items", itemController.itemListPOST);
 
 /* Category Routes */
 
