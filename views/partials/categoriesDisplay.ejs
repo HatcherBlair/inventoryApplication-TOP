@@ -1,0 +1,7 @@
+<div class="container-fluid text-center">
+  <div class="row row-cols-auto">
+    <% categories.forEach(function(category) { %>
+    <div class="col"><%-include("categoryCard", {category: category});%></div>
+    <% }); %>
+  </div>
+</div>
