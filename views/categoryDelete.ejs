@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head') -%>
+  </head>
+  <body class="container bg-light">
+    <header><%- include('./partials/header') -%></header>
+    <h1><%= title %>: <%= category.name %></h1>
+
+    <% if (items.length) { %>
+    <p>
+      These items depend on this category. Remove from category or delete items.
+    </p>
+    <ul>
+      <% items.forEach(function(item) { %>
+      <li><a href="<%=item.url%>"><%= item.name%> </a></li>
+      <% }) %>
+    </ul>
+
+    <%} else { %>
+
+    <p>Do you really want to delete this category?</p>
+
+    <form method="post">
+      <div class="form-group">
+        <input
+          type="hidden"
+          name="categoryid"
+          value="<%= category._id %>"
+          id="categoryid"
+        />
+        <button class="btn btn-primary" type="submit">Delete</button>
+      </div>
+    </form>
+    <% } %>
+  </body>
+</html>

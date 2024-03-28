@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head') -%>
+  </head>
+  <body class="container bg-light">
+    <header><%- include('./partials/header') -%></header>
+    <div class="container bg-light">
+      <h1><%= title %></h1>
+      <form method="post">
+        <div class="form-group">
+          <label for="categoryName">Category Name:</label>
+          <input
+            class="form-control"
+            id="categoryName"
+            name="categoryName"
+            type="text"
+            placeholder="New Category"
+            required
+            value="<%-
+             typeof category==='undefined' ?
+            '' : category.name
+            %>"
+          />
+          <label for="categoryDescription">Category Description:</label>
+          <input
+            class="form-control"
+            id="categoryDescription"
+            name="categoryDescription"
+            type="text"
+            placeholder="Super cool new category"
+            required
+            value="<%-
+             typeof category==='undefined' ?
+            '' : category.description
+            %>"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head') -%>
+  </head>
+  <body class="container bg-light">
+    <header><%- include('./partials/header') -%></header>
+    <div class="container bg-light">
+      <h1><%= title %></h1>
+      <form method="post">
+        <div class="form-group">
+          <label for="itemName">Item Name:</label>
+          <input
+            class="form-control"
+            id="itemName"
+            name="itemName"
+            type="text"
+            placeholder="New Item"
+            required
+            value="<%-
+             typeof item==='undefined' ?
+            '' : item.name
+            %>"
+          />
+          <label for="itemDescription">Item Description:</label>
+          <input
+            class="form-control"
+            id="itemDescription"
+            name="itemDescription"
+            type="text"
+            placeholder="Super cool new item for sale"
+            required
+            value="<%-
+             typeof item==='undefined' ?
+            '' : item.description
+            %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="itemPrice">Item Price:</label>
+          <input
+            class="form-control"
+            id="itemPrice"
+            name="itemPrice"
+            type="number"
+            min="0"
+            placeholder="52.99"
+            required
+            value="<%-
+             typeof item==='undefined' ?
+            '' : item.price
+            %>"
+          />
+          <label for="numInStock">Item Quantity:</label>
+          <input
+            class="form-control"
+            id="numInStock"
+            name="numInStock"
+            type="number"
+            min="0"
+            placeholder="10000"
+            required
+            value="<%-
+             typeof item==='undefined' ?
+            '' : item.numInStock
+            %>"
+          />
+        </div>
+        <div class="form-group">
+          <label>Category: </label>
+          <% categories.forEach(function(category) { %> <% if (category.checked)
+          { %>
+          <input
+            type="checkbox"
+            class="checkbox-input"
+            name="category"
+            id="<%- category._id %>"
+            value="<%- category._id %>"
+            checked
+          />
+          <% } else { %>
+          <input
+            type="checkbox"
+            class="checkbox-input"
+            name="category"
+            id="<%- category._id %>"
+            value="<%- category._id %>"
+          />
+          <% } %>
+          <label for="<%-category._id%>"><%- category.name %></label>
+          <% }) %>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

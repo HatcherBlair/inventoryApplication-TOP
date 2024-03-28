@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head') -%>
+  </head>
+  <body class="container bg-light">
+    <header><%- include('./partials/header') -%></header>
+    <h1><%= title %>: <%= item.name %></h1>
+
+    <p>Do you really want to delete this item?</p>
+
+    <form method="post">
+      <div class="form-group">
+        <input
+          type="hidden"
+          name="itemid"
+          value="<%= item._id %>"
+          id="itemid"
+        />
+        <button class="btn btn-primary" type="submit">Delete</button>
+      </div>
+    </form>
+  </body>
+</html>
